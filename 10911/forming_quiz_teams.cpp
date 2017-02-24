@@ -13,8 +13,9 @@ int main() {
       break;
     }
 
-    int count = n * 2;
     vector<pair<int, int>> coordinates;
+    int count = n * 2;
+    
     while (count > 0) {
       string name;
       int x, y;
