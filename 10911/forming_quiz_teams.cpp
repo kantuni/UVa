@@ -26,7 +26,6 @@ int main() {
     }
 
     cout << "Case " << i << ": " << endl;
-
     ++i;
   }
   
