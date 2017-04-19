@@ -17,18 +17,13 @@ double d(ii p1, ii p2) {
   );
 }
 
-double c(vii coords) {
-  cout << "coords: " << "\n";
-  for (int i = 0; i < coords.size(); ++i) {
-    printf("(%d, %d) ", coords[i].first, coords[i].second);
-  }
-  cout << "\n";
-  
+double c(vii coords) {  
   if (coords.size() == 2) {
     return d(coords[0], coords[1]);
   }
   
   double min = 2000000;
+  
   for (int i = 1; i < coords.size(); ++i) {
     vii temp;
     for (int j = 1; j < coords.size(); ++j) {
@@ -36,12 +31,6 @@ double c(vii coords) {
         temp.push_back(coords[j]);
       }
     }
-    
-    cout << "temp: " << "\n";
-    for (int i = 0; i < temp.size(); ++i) {
-      printf("(%d, %d) ", temp[i].first, temp[i].second);
-    }
-    cout << "\n";
     
     double sum = d(coords[0], coords[i]) + c(temp);
     if (sum < min) {
