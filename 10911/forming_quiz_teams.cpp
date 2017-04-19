@@ -3,13 +3,10 @@
 #include <cmath>
 #include <string>
 #include <vector>
-#include <unordered_map>
 using namespace std;
 
 typedef pair<int, int> ii;
 typedef vector<ii> vii;
-
-unordered_map<string, double> memo;
 
 double d(ii p1, ii p2) {
   return sqrt(
