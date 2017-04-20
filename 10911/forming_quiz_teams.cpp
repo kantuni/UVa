@@ -3,10 +3,16 @@
 #include <cmath>
 #include <string>
 #include <vector>
+#include <iterator>
+#include <unordered_map>
 using namespace std;
 
 typedef pair<int, int> ii;
+typedef vector<int> vi;
 typedef vector<ii> vii;
+
+vii coords;
+unordered_map<string, double> memo;
 
 double d(ii p1, ii p2) {
   return sqrt(
@@ -14,22 +20,31 @@ double d(ii p1, ii p2) {
   );
 }
 
-double c(vii coords) {  
-  if (coords.size() == 2) {
-    return d(coords[0], coords[1]);
+double c(vi cindex) {
+  if (cindex.size() == 2) {
+    return d(coords[cindex[0]], coords[cindex[1]]);
   }
   
   double min = 2000000;
   
-  for (int i = 1; i < coords.size(); ++i) {
-    vii temp;
-    for (int j = 1; j < coords.size(); ++j) {
+  for (int i = 1; i < cindex.size(); ++i) {
+    vi temp;
+    for (int j = 1; j < cindex.size(); ++j) {
       if (j != i) {
-        temp.push_back(coords[j]);
+        temp.push_back(cindex[j]);
       }
     }
+
+    string key = "";
+    for (int j = 0; j < temp.size(); ++j) {
+      key += to_string(temp[j]);
+    }
     
-    double sum = d(coords[0], coords[i]) + c(temp);
+    if (memo.find(key) == end(memo)) {
+      memo[key] = c(temp);
+    }
+    
+    double sum = d(coords[cindex[0]], coords[cindex[i]]) + memo[key];
     if (sum < min) {
       min = sum;
     }
@@ -49,7 +64,6 @@ int main() {
       break;
     }
 
-    vii coords;
     int count = n * 2;
     
     while (count > 0) {
@@ -61,9 +75,16 @@ int main() {
       coords.push_back(p);
       --count;
     }
+    
+    vi cindex;
+    for (int i = 0; i < coords.size(); ++i) {
+      cindex.push_back(i);
+    }
 
     cout << "Case " << cn << ": ";
-    cout << fixed << setprecision(2) << c(coords) << "\n";
+    cout << fixed << setprecision(2) << c(cindex) << "\n";
+    coords.clear();
+    memo.clear();
     ++cn;
   }
   
