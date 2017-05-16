@@ -72,17 +72,17 @@ class Main {
         }
         
         ArrayList<Double> owe = new ArrayList<>();
-        owe.add(amount);
+        owe.add(amount - downPayment);
         ArrayList<Double> cost = new ArrayList<>();
         double total = amount + downPayment;
-        cost.add(total * (1.0 - d.get(0)));
+        cost.add(total * (1 - d.get(0)));
         
         int count = 1;
         while (owe.get(owe.size() - 1) >= cost.get(cost.size() - 1)) {
           double lo = owe.get(owe.size() - 1);
-          double lc = cost.get(cost.size() - 1);
           lo -= downPayment;
           owe.add(lo);
+          double lc = cost.get(cost.size() - 1);
           if (count < d.size()) {
             lc *= 1.0 - d.get(count);
           } else {
@@ -90,11 +90,11 @@ class Main {
           }
           cost.add(lc);
           ++count;
-          System.out.println("Owe: " + owe);
+          System.out.println("\nOwe: " + owe);
           System.out.println("Cost: " + cost);
         }
         
-        System.out.println(count - 1);
+        System.out.println(count);
       }
     } catch (IOException e) {
       e.printStackTrace();
