@@ -71,17 +71,23 @@ class Main {
           }
         }
         
-        ArrayList<Double> owe = new ArrayList<>();
-        owe.add(amount - downPayment);
-        ArrayList<Double> cost = new ArrayList<>();
         double total = amount + downPayment;
+        double monthly = amount / months;
+        
+        ArrayList<Double> owe = new ArrayList<>();
+        owe.add(amount);
+        
+        ArrayList<Double> cost = new ArrayList<>();
         cost.add(total * (1 - d.get(0)));
         
-        int count = 1;
+        int count = 0;
         while (owe.get(owe.size() - 1) >= cost.get(cost.size() - 1)) {
+          ++count;
+          
           double lo = owe.get(owe.size() - 1);
-          lo -= downPayment;
+          lo -= monthly;
           owe.add(lo);
+          
           double lc = cost.get(cost.size() - 1);
           if (count < d.size()) {
             lc *= 1.0 - d.get(count);
@@ -89,12 +95,13 @@ class Main {
             lc *= 1.0 - d.get(d.size() - 1);
           }
           cost.add(lc);
-          ++count;
-          System.out.println("\nOwe: " + owe);
-          System.out.println("Cost: " + cost);
         }
         
-        System.out.println(count);
+        if (count == 1) {
+          System.out.println("1 month");
+        } else {
+          System.out.println(count + " months");
+        }
       }
     } catch (IOException e) {
       e.printStackTrace();
