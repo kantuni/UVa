@@ -1,5 +1,5 @@
 # Solutions to [UVa Online Judge](https://uva.onlinejudge.org) Problems
-## Problems solved: `6`
+## Problems solved: `7`
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Logotipo_de_la_Universidad_de_Valladolid.svg" alt="UVa" height="100">
 
