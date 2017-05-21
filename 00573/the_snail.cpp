@@ -14,16 +14,16 @@ int main() {
     double IH = 0.0, DC = U, HAC = IH + DC, HAS = HAC - D;
     if (HAC > H) {
       cout << "success on day 1\n";
-      return 0;
+      continue;
     } else if (HAS < 0) {
       cout << "failure on day 1\n";
-      return 0;
+      continue;
     }
     
     int day = 2;
     while (true) {
       IH = HAS;
-      DC -= (double) (U * F) / 100.0;
+      DC -= U * (F / 100.0);
       DC = (DC < 0) ? 0 : DC;
       HAC = IH + DC;
       if (HAC > H) {
