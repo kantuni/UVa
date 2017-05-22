@@ -17,10 +17,6 @@ class Proposal {
     this.price = price;
     this.compliance = compliance;
   }
-  
-  public String toString() {
-    return index + " " + name + " " + price + " " + compliance + "\n";
-  }
 }
 
 class ProposalComparator implements Comparator<Proposal> {
