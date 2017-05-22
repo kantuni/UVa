@@ -11,3 +11,4 @@
 - [11559](https://github.com/kantuni/UVa/tree/master/11559) - Event Planning - **Accepted**
 - [11799](https://github.com/kantuni/UVa/tree/master/11799) - Horror Dash - **Accepted**
 - [00573](https://github.com/kantuni/UVa/tree/master/00573) - The Snail - **Accepted**
+- [10141](https://github.com/kantuni/UVa/tree/master/10141) - Request for Proposal - **Accepted**
