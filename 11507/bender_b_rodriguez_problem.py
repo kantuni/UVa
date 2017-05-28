@@ -4,5 +4,3 @@ if __name__ == "__main__":
         if L == 0:
             exit()
         decisions = input().split()
-        print(decisions)
-
