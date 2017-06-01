@@ -26,7 +26,6 @@ double c(vi cindex) {
   }
   
   double min = 2000000;
-  
   for (int i = 1; i < cindex.size(); ++i) {
     vi temp;
     for (int j = 1; j < cindex.size(); ++j) {
@@ -49,7 +48,6 @@ double c(vi cindex) {
       min = sum;
     }
   }
-  
   return min;
 }
 
@@ -65,15 +63,13 @@ int main() {
     }
 
     int count = n * 2;
-    
-    while (count > 0) {
+    while (count--) {
       string name;
       int x, y;
       cin >> name >> x >> y;
       
       ii p = {x, y};
       coords.push_back(p);
-      --count;
     }
     
     vi cindex;
@@ -87,6 +83,5 @@ int main() {
     memo.clear();
     ++cn;
   }
-  
   return 0;
 }
