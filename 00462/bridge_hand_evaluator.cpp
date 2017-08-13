@@ -37,41 +37,42 @@ int main() {
     }
     
     for (int i = 0; i < hand.size(); ++i) {
-      char rank = hand[i][0];
-      char suit = hand[i][1];
+      string card = hand[i];
+      char rank = card[0];
+      char suit = card[1];
       
       if (rank == 'J') {
         // 4
-        bool fourth = suit == 'S' && spades <= 3;
-        fourth |= suit == 'H' && hearts <= 3;
-        fourth |= suit == 'D' && diamonds <= 3;
-        fourth |= suit == 'C' && clubs <= 3;
-        points = fourth ? --points : points;
+        bool fourth = (suit == 'S' && spades <= 3);
+        fourth = fourth || (suit == 'H' && hearts <= 3);
+        fourth = fourth || (suit == 'D' && diamonds <= 3);
+        fourth = fourth || (suit == 'C' && clubs <= 3);
+        points = fourth ? points - 1 : points;
       } else if (rank == 'Q') {
         // 3
-        bool third = suit == 'S' && spades <= 2;
-        third |= suit == 'H' && hearts <= 2;
-        third |= suit == 'D' && diamonds <= 2;
-        third |= suit == 'C' && clubs <= 2;
-        points = third ? --points : points;
+        bool third = (suit == 'S' && spades <= 2);
+        third = third || (suit == 'H' && hearts <= 2);
+        third = third || (suit == 'D' && diamonds <= 2);
+        third = third || (suit == 'C' && clubs <= 2);
+        points = third ? points - 1 : points;
         
         // stopped
         if (suit == 'S' && spades >= 3) ss = true;
-        else if (suit == 'D' && diamonds >= 3) ds = true;
         else if (suit == 'H' && hearts >= 3) hs = true;
+        else if (suit == 'D' && diamonds >= 3) ds = true;
         else if (suit == 'C' && clubs >= 3) cs = true;
       } else if (rank == 'K') {
         // 2
-        bool second = suit == 'S' && spades == 1;
-        second |= suit == 'H' && hearts == 1;
-        second |= suit == 'D' && diamonds == 1;
-        second |= suit == 'C' && clubs == 1;
-        points = second ? --points : points;
+        bool second = (suit == 'S' && spades == 1);
+        second = second || (suit == 'H' && hearts == 1);
+        second = second || (suit == 'D' && diamonds == 1);
+        second = second || (suit == 'C' && clubs == 1);
+        points = second ? points - 1 : points;
         
         // stopped
         if (suit == 'S' && spades >= 2) ss = true;
-        else if (suit == 'D' && diamonds >= 2) ds = true;
         else if (suit == 'H' && hearts >= 2) hs = true;
+        else if (suit == 'D' && diamonds >= 2) ds = true;
         else if (suit == 'C' && clubs >= 2) cs = true;
       } else if (rank == 'A') {
         // stopped
