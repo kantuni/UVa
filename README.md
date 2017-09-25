@@ -11,6 +11,4 @@
 - [10141](https://github.com/kantuni/UVa/tree/master/10141) - Request for Proposal - **Accepted**
 - [11507](https://github.com/kantuni/UVa/tree/master/11507) - Bender B. Rodriguez Problem - **Accepted**
 
-<br>
-
 Problems solved: **10**
