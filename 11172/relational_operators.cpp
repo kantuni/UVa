@@ -4,11 +4,11 @@ using namespace std;
 int main() {
   int T;
   cin >> T;
-  for (int t = 0; t < T; t++) {
+  while (T--) {
     long long a, b;
     cin >> a >> b;
-    char relation = (a < b) ? '<' : (a > b) ? '>' : '=';
-    cout << relation << "\n";
+    char rel = (a < b) ? '<' : (a > b) ? '>' : '=';
+    cout << rel << "\n";
   }
   return 0;
 }
