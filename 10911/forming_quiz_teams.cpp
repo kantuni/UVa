@@ -26,16 +26,16 @@ double c(vi cindex) {
   }
   
   double min = 2000000;
-  for (int i = 1; i < cindex.size(); ++i) {
+  for (int i = 1; i < cindex.size(); i++) {
     vi temp;
-    for (int j = 1; j < cindex.size(); ++j) {
+    for (int j = 1; j < cindex.size(); j++) {
       if (j != i) {
         temp.push_back(cindex[j]);
       }
     }
 
     string key = "";
-    for (int j = 0; j < temp.size(); ++j) {
+    for (int j = 0; j < temp.size(); j++) {
       key += to_string(temp[j]);
     }
     
@@ -73,7 +73,7 @@ int main() {
     }
     
     vi cindex;
-    for (int i = 0; i < coords.size(); ++i) {
+    for (int i = 0; i < coords.size(); i++) {
       cindex.push_back(i);
     }
 
@@ -81,7 +81,7 @@ int main() {
     cout << fixed << setprecision(2) << c(cindex) << "\n";
     coords.clear();
     memo.clear();
-    ++cn;
+    cn++;
   }
   return 0;
 }
