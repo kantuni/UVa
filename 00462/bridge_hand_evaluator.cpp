@@ -9,7 +9,6 @@ int main() {
   string line;
   while (getline(cin, line)) {
     istringstream iss(line);
-    
     vector<string> hand;
     int spades = 0, hearts = 0, diamonds = 0, clubs = 0;
     bool ss = false, hs = false, ds = false, cs = false;
@@ -30,13 +29,13 @@ int main() {
       else if (rank == 'K') points += 3;
       else if (rank == 'A') points += 4;
       
-      if (suit == 'S') ++spades;
-      else if (suit == 'H') ++hearts;
-      else if (suit == 'D') ++diamonds;
-      else if (suit == 'C') ++clubs;
+      if (suit == 'S') spades++;
+      else if (suit == 'H') hearts++;
+      else if (suit == 'D') diamonds++;
+      else if (suit == 'C') clubs++;
     }
     
-    for (int i = 0; i < hand.size(); ++i) {
+    for (int i = 0; i < hand.size(); i++) {
       string card = hand[i];
       char rank = card[0];
       char suit = card[1];
@@ -84,10 +83,10 @@ int main() {
     }
     
     // 5
-    if (spades == 2) ++additional;
-    if (hearts == 2) ++additional;
-    if (diamonds == 2) ++additional;
-    if (clubs == 2) ++additional;
+    if (spades == 2) additional++;
+    if (hearts == 2) additional++;
+    if (diamonds == 2) additional++;
+    if (clubs == 2) additional++;
     
     // 6
     if (spades == 1) additional += 2;
@@ -103,20 +102,19 @@ int main() {
 
     
     if (points + additional < 14) {
-      cout << "PASS" << "\n";
+      cout << "PASS\n";
     } else {
       bool stopped = ss && hs && ds && cs;
       if (points >= 16 && stopped) {
-        cout << "BID NO-TRUMP" << "\n";
+        cout << "BID NO-TRUMP\n";
       } else {
         int maximum = max({spades, hearts, diamonds, clubs});
-        if (maximum == spades) cout << "BID S" << "\n";
-        else if (maximum == hearts) cout << "BID H" << "\n";
-        else if (maximum == diamonds) cout << "BID D" << "\n";
-        else if (maximum == clubs) cout << "BID C" << "\n";
+        if (maximum == spades) cout << "BID S\n";
+        else if (maximum == hearts) cout << "BID H\n";
+        else if (maximum == diamonds) cout << "BID D\n";
+        else if (maximum == clubs) cout << "BID C\n";
       }
     }
   }
-
   return 0;
 }
