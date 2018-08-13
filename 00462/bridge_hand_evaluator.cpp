@@ -46,87 +46,78 @@ int main() {
       char suit = card[1];
       if (rank == 'J') {
         // 4
-        bool fourth = (suit == 'S' && spades <= 3);
-        fourth = fourth || (suit == 'H' && hearts <= 3);
-        fourth = fourth || (suit == 'D' && diamonds <= 3);
-        fourth = fourth || (suit == 'C' && clubs <= 3);
+        bool fourth = (suit == 'S' and spades <= 3);
+        fourth = fourth or (suit == 'H' and hearts <= 3);
+        fourth = fourth or (suit == 'D' and diamonds <= 3);
+        fourth = fourth or (suit == 'C' and clubs <= 3);
         points = fourth ? points - 1 : points;
       } else if (rank == 'Q') {
         // 3
-        bool third = (suit == 'S' && spades <= 2);
-        third = third || (suit == 'H' && hearts <= 2);
-        third = third || (suit == 'D' && diamonds <= 2);
-        third = third || (suit == 'C' && clubs <= 2);
+        bool third = (suit == 'S' and spades <= 2);
+        third = third or (suit == 'H' and hearts <= 2);
+        third = third or (suit == 'D' and diamonds <= 2);
+        third = third or (suit == 'C' and clubs <= 2);
         points = third ? points - 1 : points;
         // stopped
-        if (suit == 'S' && spades >= 3) ss = true;
-        else if (suit == 'H' && hearts >= 3) hs = true;
-        else if (suit == 'D' && diamonds >= 3) ds = true;
-        else if (suit == 'C' && clubs >= 3) cs = true;
+        if (suit == 'S' and spades >= 3) {
+          ss = true;
+        } else if (suit == 'H' and hearts >= 3) {
+          hs = true;
+        } else if (suit == 'D' and diamonds >= 3) {
+          ds = true;
+        } else if (suit == 'C' and clubs >= 3) {
+          cs = true;
+        }
       } else if (rank == 'K') {
         // 2
-        bool second = (suit == 'S' && spades == 1);
-        second = second || (suit == 'H' && hearts == 1);
-        second = second || (suit == 'D' && diamonds == 1);
-        second = second || (suit == 'C' && clubs == 1);
+        bool second = (suit == 'S' and spades == 1);
+        second = second or (suit == 'H' and hearts == 1);
+        second = second or (suit == 'D' and diamonds == 1);
+        second = second or (suit == 'C' and clubs == 1);
         points = second ? points - 1 : points;
         // stopped
-        if (suit == 'S' && spades >= 2) ss = true;
-        else if (suit == 'H' && hearts >= 2) hs = true;
-        else if (suit == 'D' && diamonds >= 2) ds = true;
-        else if (suit == 'C' && clubs >= 2) cs = true;
+        if (suit == 'S' and spades >= 2) {
+          ss = true;
+        } else if (suit == 'H' and hearts >= 2) {
+          hs = true;
+        } else if (suit == 'D' and diamonds >= 2) {
+          ds = true;
+        } else if (suit == 'C' and clubs >= 2) {
+          cs = true;
+        }
       } else if (rank == 'A') {
         // stopped
-        if (suit == 'S') ss = true;
-        else if (suit == 'H') hs = true;
-        else if (suit == 'D') ds = true;
-        else if (suit == 'C') cs = true;
+        if (suit == 'S') {
+          ss = true;
+        } else if (suit == 'H') {
+          hs = true;
+        } else if (suit == 'D') {
+          ds = true;
+        } else if (suit == 'C') {
+          cs = true;
+        }
       }
     }
     // 5
-    if (spades == 2) {
-      additional++;
-    }
-    if (hearts == 2) {
-      additional++;
-    }
-    if (diamonds == 2) {
-      additional++;
-    }
-    if (clubs == 2) {
-      additional++;
-    }
+    additional += spades == 2 ? 1 : 0;
+    additional += hearts == 2 ? 1 : 0;
+    additional += diamonds == 2 ? 1 : 0;
+    additional += clubs == 2 ? 1 : 0;
     // 6
-    if (spades == 1) {
-      additional += 2;
-    }
-    if (hearts == 1) {
-      additional += 2;
-    }
-    if (diamonds == 1) {
-      additional += 2;
-    }
-    if (clubs == 1) {
-      additional += 2;
-    }
+    additional += spades == 1 ? 2 : 0;
+    additional += hearts == 1 ? 2 : 0;
+    additional += diamonds == 1 ? 2 : 0;
+    additional += clubs == 1 ? 2 : 0;
     // 7
-    if (spades == 0) {
-      additional += 2;
-    }
-    if (hearts == 0) {
-      additional += 2;
-    }
-    if (diamonds == 0) {
-      additional += 2;
-    }
-    if (clubs == 0) {
-      additional += 2;
-    }
+    additional += spades == 0 ? 2 : 0;
+    additional += hearts == 0 ? 2 : 0;
+    additional += diamonds == 0 ? 2 : 0;
+    additional += clubs == 0 ? 2 : 0;
     if (points + additional < 14) {
       cout << "PASS" << "\n";
     } else {
-      bool stopped = ss && hs && ds && cs;
-      if (points >= 16 && stopped) {
+      bool stopped = ss and hs and ds and cs;
+      if (points >= 16 and stopped) {
         cout << "BID NO-TRUMP" << "\n";
       } else {
         int maximum = max({spades, hearts, diamonds, clubs});
