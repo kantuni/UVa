@@ -12,10 +12,10 @@ int main() {
     // height after climbing, height after sliding
     double IH = 0.0, DC = U, HAC = IH + DC, HAS = HAC - D;
     if (HAC > H) {
-      cout << "success on day 1\n";
+      cout << "success on day 1" << "\n";
       continue;
     } else if (HAS < 0) {
-      cout << "failure on day 1\n";
+      cout << "failure on day 1" << "\n";
       continue;
     }
     int day = 2;
