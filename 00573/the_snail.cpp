@@ -8,7 +8,6 @@ int main() {
     if (H == 0) {
       break;
     }
-    
     // initial height, distance climbed,
     // height after climbing, height after sliding
     double IH = 0.0, DC = U, HAC = IH + DC, HAS = HAC - D;
@@ -19,7 +18,6 @@ int main() {
       cout << "failure on day 1\n";
       continue;
     }
-    
     int day = 2;
     while (true) {
       IH = HAS;
@@ -35,7 +33,7 @@ int main() {
         cout << "failure on day " << day << "\n";
         break;
       }
-      ++day;
+      day++;
     }
   }
   return 0;
