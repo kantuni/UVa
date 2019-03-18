@@ -2,13 +2,13 @@
 using namespace std;
 
 int main() {
-  int T;
-  cin >> T;
-  while (T--) {
+  int t;
+  cin >> t;
+  while (t--) {
     long long a, b;
     cin >> a >> b;
     char rel = (a < b) ? '<' : (a > b) ? '>' : '=';
-    cout << rel << "\n";
+    cout << rel << endl;
   }
   return 0;
 }
