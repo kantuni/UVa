@@ -44,7 +44,7 @@ class Main {
         }
         int N = reader.nextInt();
         int M = reader.nextInt();
-        for (int k = 0; k < K; ++k) {
+        for (int k = 0; k < K; k++) {
           int X = reader.nextInt();
           int Y = reader.nextInt();
           if (X == N || Y == M) {
