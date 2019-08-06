@@ -38,13 +38,13 @@ while True:
             }
             current = rules[d]
         elif current == '+z':
-            plus_z_rules = {
+            rules = {
                 '+y': '+z',
                 '-y': '+z',
                 '+z': '-x',
                 '-z': '+x'
             }
-            current = plus_z_rules[d]
+            current = rules[d]
         elif current == '-z':
             rules = {
                 '+y': '-z',
