@@ -14,29 +14,29 @@ while True:
         if current == '+x':
             current = d
         elif current == '-x':
-            minus_x_rules = {
+            rules = {
                 '+y': '-y',
                 '-y': '+y',
                 '+z': '-z',
                 '-z': '+z'
             }
-            current = minus_x_rules[d]
+            current = rules[d]
         elif current == '+y':
-            plus_y_rules = {
+            rules = {
                 '+y': '-x',
                 '-y': '+x',
                 '+z': '+y',
                 '-z': '+y'
             }
-            current = plus_y_rules[d]
+            current = rules[d]
         elif current == '-y':
-            minus_y_rules = {
+            rules = {
                 '+y': '+x',
                 '-y': '-x',
                 '+z': '-y',
                 '-z': '-y'
             }
-            current = minus_y_rules[d]
+            current = rules[d]
         elif current == '+z':
             plus_z_rules = {
                 '+y': '+z',
@@ -46,13 +46,12 @@ while True:
             }
             current = plus_z_rules[d]
         elif current == '-z':
-            minus_z_rules = {
+            rules = {
                 '+y': '-z',
                 '-y': '-z',
                 '+z': '+x',
                 '-z': '-x'
             }
-            current = minus_z_rules[d]
+            current = rules[d]
     
     print(current)
-
