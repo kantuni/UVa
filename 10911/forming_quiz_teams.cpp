@@ -77,8 +77,9 @@ int main() {
       cindex.push_back(i);
     }
 
+    cout << fixed << setprecision(2);
     cout << "Case " << cn << ": ";
-    cout << fixed << setprecision(2) << c(cindex) << "\n";
+    cout << c(cindex) << endl;
     coords.clear();
     memo.clear();
     cn++;
