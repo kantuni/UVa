@@ -75,18 +75,18 @@ class Main {
           break;
         }
         
-        for (int i = 0; i < n; ++i) {
-          String temp = reader.nextLine();
+        for (int i = 0; i < n; i++) {
+          String tmp = reader.nextLine();
         }
         
         Proposal[] proposals = new Proposal[p];
-        for (int i = 0; i < p; ++i) {
+        for (int i = 0; i < p; i++) {
           String name = reader.nextLine();
           double d = reader.nextDouble();
           int r = reader.nextInt();
           proposals[i] = new Proposal(i, name, d, (double) r / n);
-          for (int j = 0; j < r; ++j) {
-            String temp = reader.nextLine();
+          for (int j = 0; j < r; j++) {
+            String tmp = reader.nextLine();
           }
         }
         
@@ -99,7 +99,7 @@ class Main {
         System.out.println("RFP #" + counter);
         System.out.println(proposals[0].name);
         
-        ++counter;
+        counter++;
       }
     } catch (Exception e) {
       e.printStackTrace();
